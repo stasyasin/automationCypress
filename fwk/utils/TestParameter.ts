@@ -1,4 +1,4 @@
-import { Environment } from '../models/Environment';
+import { IEnvironment } from '../models/IEnvironment';
 import { ENVIRONMENT_LIST } from '../../resources/common/environmentList';
 
 /**
@@ -9,7 +9,7 @@ import { ENVIRONMENT_LIST } from '../../resources/common/environmentList';
 export class TestParameter {
   public static testProps: any = null;
   private static timeStamp: Date = null;
-  public static environment: Environment = {} as Environment;
+  public static environment: IEnvironment = {} as IEnvironment;
 
   /**
    * Common method to include all necessary init methods before test.

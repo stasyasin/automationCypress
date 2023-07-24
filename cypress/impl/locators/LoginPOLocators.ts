@@ -1,3 +1,5 @@
 export const loginPOLocators: any = {
-  LOC_LOGIN_LINK: '#pt-login-2 a'
+  LOC_NAME_INPUT: 'input#wpName1',
+  LOC_PASSWORD_INPUT: 'input#wpPassword1',
+  LOC_LOGIN_BUTTON: 'button#wpLoginAttempt'
 };

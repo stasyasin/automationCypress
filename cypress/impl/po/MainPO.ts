@@ -1,48 +1,28 @@
-// import { by, element, protractor } from 'protractor';
-// import * as ActionUtils from '../../fwk/utils/ActionUtils';
-// import { MainPOLocators } from '../locators/MainPOLocators';
-// import { CommonPOLocators } from '../locators/CommonPOLocators';
-// import * as WaitUtils from '../../fwk/utils/WaitUtils';
-// import * as CheckUtils from '../../fwk/utils/CheckUtils';
-// import { getElement } from '../../fwk/utils/ElementUtils';
-
 import { mainPOLocators } from '../locators/MainPOLocators';
 
 export class MainPO {
 
-  // async isStartProjectLinkDisplayed(): Promise<boolean> {
-  //   await WaitUtils.waitForElementPresent(getElement(by.cssContainingText(
-  //     CommonPOLocators.LOC_ANY_BODY_LINK, 'Start a project')));
-  //   return await CheckUtils.isElementDisplayed(getElement(by.cssContainingText(
-  //     CommonPOLocators.LOC_ANY_BODY_LINK, 'Start a project')));
-  // }
-
-  async isLoginLinkDisplayed(): Promise<void> {
-    await cy.isElementDisplayed(mainPOLocators.LOC_LOGIN_LINK);
+  isLoginLinkDisplayed(): void {
+    cy.isElementDisplayed(mainPOLocators.LOC_LOGIN_LINK);
   }
 
-  async clickLoginLink(): Promise<void> {
-    await cy.isElementDisplayed(mainPOLocators.LOC_LOGIN_LINK);
-    await cy.wait(30);
+  clickLoginLink(): void {
+    cy.clickElement(mainPOLocators.LOC_LOGIN_LINK);
   }
 
-  async clickLogoutLink(): Promise<void> {
-    await cy.isElementDisplayed(mainPOLocators.LOC_LOGIN_LINK);
+  isCorrectLoggedUserNameDisplayed(userName: string): void {
+    cy.isElementDisplayed(mainPOLocators.LOC_USER_NAME_LINK);
+    cy.getElementText(mainPOLocators.LOC_USER_NAME_LINK).should('eq', userName);
   }
 
-  // async clickLogout(): Promise<void> {
-  //   await ActionUtils.scrollAndClickElement(getElement(MainPOLocators.LOC_DROPDOWN_CARET_SPAN),
-  //     'Click Dropdown-caret error');
-  //   await ActionUtils.scrollAndClickElement(getElement(MainPOLocators.LOC_LOGOUT_BUTTON),
-  //     'Click Sign out button error');
-  // }
+  performLogout(): void {
+    cy.clickElement(mainPOLocators.LOC_ACCOUNT_MENU);
+    cy.clickElement(mainPOLocators.LOC_LOGOUT_LINK);
+  }
 
-  // async searchRepository(repName: string, repOwner: string): Promise<void> {
-  //   await ActionUtils.fillElementInput(getElement(CommonPOLocators.LOC_QUICK_SEARCH_INPUT), repName,
-  //     'Fill quick search Error');
-  //   getElement(CommonPOLocators.LOC_QUICK_SEARCH_INPUT).sendKeys(protractor.Key.ENTER);
-  //   await ActionUtils.scrollAndClickElement(getElement(
-  //     by.cssContainingText(MainPOLocators.LOC_SEARCH_RESULT_LINK, repOwner)),
-  //     'Click Repository search result link Error');
-  // }
+  performTermSearch(searchTerm: string): void {
+    cy.isElementDisplayed(mainPOLocators.LOC_SEARCH_INPUT);
+    cy.fillElementInput(mainPOLocators.LOC_SEARCH_INPUT, searchTerm);
+    cy.clickElement(mainPOLocators.LOC_SEARCH_BUTTON);
+  }
 }

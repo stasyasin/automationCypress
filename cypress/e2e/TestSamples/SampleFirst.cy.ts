@@ -1,14 +1,17 @@
 import { CommonScenario } from '../CommonScenario';
 import { SAMPLE_FIRST_PROP } from '../../../resources/e2e/sampleTest/SampleFirstProp';
+import { MainPO } from '../../impl/po/MainPO';
+import { ArticlePO } from '../../impl/po/ArticlePO';
+import { TestParameter } from '../../../fwk/utils/TestParameter';
 
 export class SampleFirstCy extends CommonScenario {
+  mainPO = new MainPO();
+  articlePO = new ArticlePO();
 
   performTest(): void {
-    it('Search repository with name/owner from TestParameters', (): void => {
-      // await this.mainPO.searchRepository(TestParameter.data.repositoryParameters.repName,
-      //   TestParameter.data.repositoryParameters.repOwner);
-      // expect(await this.repositoryPO.isSummaryButtonDisplayed()).toBeTruthy(
-      //   'Summary Button is not displayed, repository was not found');
+    it('Perform article search by searchTerm', (): void => {
+      this.mainPO.performTermSearch(TestParameter.testProps.searchTerm);
+      this.articlePO.getArticleHeader().should('eq', TestParameter.testProps.searchTerm + 1);
     });
   }
 }
