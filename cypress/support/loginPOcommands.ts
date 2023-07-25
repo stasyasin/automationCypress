@@ -27,17 +27,17 @@ declare global {
       getElementCSSValue(selector: string, propertyName: string): Chainable;
       getElementLocation(selector: string): Chainable;
       countElements(selector: string): Chainable;
-      clickElement(selector: string): void;
-      dbClickElement(selector: string): void;
-      pressAndHoldElement(selector: string, duration: number): void;
-      dragAndDropToCoordinates(selector: string, x: number, y: number): void;
-      dragAndDropToElement(sourceSelector: string, targetSelector: string): void;
-      swipeElement(selector: string, startY: number, endX: number, endY: number, duration: number): void;
-      clickToCoordinates(x: number, y: number): void;
-      fillElementInput(selector: string, text: string): void;
-      selectElementValue(selector: string, value: string): void;
-      uploadFile(selector: string, fileName: string): void;
-      switchToWindow(windowName: string): void;
+      clickElement(selector: string): Promise<void>;
+      dbClickElement(selector: string): Promise<void>;
+      pressAndHoldElement(selector: string, duration: number): Promise<void>;
+      dragAndDropToCoordinates(selector: string, x: number, y: number): Promise<void>;
+      dragAndDropToElement(sourceSelector: string, targetSelector: string): Promise<void>;
+      swipeElement(selector: string, startY: number, endX: number, endY: number, duration: number): Promise<void>;
+      clickToCoordinates(x: number, y: number): Promise<void>;
+      fillElementInput(selector: string, text: string): Promise<void>;
+      selectElementValue(selector: string, value: string): Promise<void>;
+      uploadFile(selector: string, fileName: string): Promise<void>;
+      switchToWindow(windowName: string): Promise<void>;
     }
   }
 }

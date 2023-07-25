@@ -1,7 +1,7 @@
 import { ITestRunOptions } from '../../../fwk/models/ITestRunOptions';
 
-export const SAMPLE_FIRST_PROP: ITestRunOptions = {
-  testName: 'SampleTest',
+export const SAMPLE_SEARCH_TERM_UKRAINE: ITestRunOptions = {
+  testName: 'SampleSearchTermUkraine',
   performLogin: true,
   testProps: {
     searchTerm: 'Ukraine'
