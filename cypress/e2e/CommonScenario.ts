@@ -2,6 +2,7 @@ import { TestParameter } from '../../fwk/utils/TestParameter';
 import { ITestRunOptions } from '../../fwk/models/ITestRunOptions';
 import { MainPO } from '../impl/po/MainPO';
 import { LoginPO } from '../impl/po/LoginPO';
+import '../support/loginPOCommands';
 
 export abstract class CommonScenario {
   mainPO = new MainPO();
@@ -34,11 +35,10 @@ export abstract class CommonScenario {
   performLogOut(): void {
     this.mainPO.performLogout();
     this.mainPO.isLoginLinkDisplayed();
-    cy.waitInSeconds(10);
   }
 
   run(options: ITestRunOptions): void {
-    describe(options.testName, (): void => {
+    describe('Describe name', (): void => {
       this.pageSetup(options.testProps);
 
       if (options.performLogin) {

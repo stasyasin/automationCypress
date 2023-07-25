@@ -5,8 +5,8 @@ export class LoginPO {
     cy.isElementDisplayed(loginPOLocators.LOC_LOGIN_BUTTON);
   }
 
-  performLogin(username: string, password: string): void {
-    cy.fillElementInput(loginPOLocators.LOC_NAME_INPUT, username);
+  performLogin(userName: string, password: string): void {
+    cy.fillElementInput(loginPOLocators.LOC_NAME_INPUT, userName);
     cy.fillElementInput(loginPOLocators.LOC_PASSWORD_INPUT, password);
     cy.clickElement(loginPOLocators.LOC_LOGIN_BUTTON);
   }

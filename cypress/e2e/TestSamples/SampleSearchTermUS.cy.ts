@@ -5,13 +5,13 @@ import { MainPO } from '../../impl/po/MainPO';
 import { ArticlePO } from '../../impl/po/ArticlePO';
 import { SAMPLE_SEARCH_TERM_US } from '../../../resources/e2e/TestSamples/SampleSearchTermUS';
 
-describe(SAMPLE_SEARCH_TERM_US.testName, (): void => {
+describe('Perform article search by searchTerm United States', (): void => {
   const testConfig = SAMPLE_SEARCH_TERM_US as ITestRunOptions; // Get test config
   const commonSteps = new CommonSteps();
   // Page objects
   const mainPO = new MainPO();
   const articlePO = new ArticlePO();
-  it('Perform article search by searchTerm', (): void => {
+  it('Login, search by searchTerm and logout', (): void => {
     commonSteps.pageSetup(testConfig.testProps);
     commonSteps.performLogin();
     mainPO.performTermSearch(TestParameter.testProps.searchTerm);
