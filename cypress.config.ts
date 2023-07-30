@@ -1,9 +1,15 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from 'cypress';
+import PluginEvents = Cypress.PluginEvents;
+import PluginConfigOptions = Cypress.PluginConfigOptions;
 
 export default defineConfig({
-  e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
+  reporter: 'junit',
+  reporterOptions: {
+    mochaFile: 'cypress/reports/my-test-output-[hash].xml'
   },
+  e2e: {
+    setupNodeEvents(on: PluginEvents, config: PluginConfigOptions): void {
+      // implement node event listeners here
+    }
+  }
 });
