@@ -15,12 +15,12 @@ export class CommonSteps {
     cy.title().should('exist');
   }
 
-  performLogin(): void {
+  performLogin(userId: string, password: string): void {
     this.mainPO.isLoginLinkDisplayed();
     this.mainPO.clickLoginLink();
     this.loginPO.isLoginButtonDisplayed();
-    this.loginPO.performLogin(TestParameter.environment.userID, TestParameter.environment.password);
-    this.mainPO.isCorrectLoggedUserNameDisplayed(TestParameter.environment.userID);
+    this.loginPO.performLogin(userId, password);
+    this.mainPO.isCorrectLoggedUserNameDisplayed(userId);
   }
 
   performLogOut(): void {

@@ -13,7 +13,7 @@ describe('Perform article search by searchTerm Ukraine', (): void => {
   const articlePO = new ArticlePO();
   it('Login, search by searchTerm and logout', (): void => {
     commonSteps.pageSetup(testConfig.testProps);
-    commonSteps.performLogin();
+    commonSteps.performLogin(TestParameter.environment.userID, TestParameter.environment.password);
     mainPO.performTermSearch(TestParameter.testProps.searchTerm);
     articlePO.getArticleHeader().should('eq', TestParameter.testProps.searchTerm);
     commonSteps.performLogOut();
