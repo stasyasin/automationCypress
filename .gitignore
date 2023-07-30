@@ -2,7 +2,8 @@
 # cypress reports files
 /cypress/videos
 /cypress/screenshots
-/cypress/reports
+/cypress/reports/reports-assets
+/cypress/reports/full-report
 
 # compiled output
 /dist

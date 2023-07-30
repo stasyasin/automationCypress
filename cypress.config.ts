@@ -5,12 +5,12 @@ import PluginConfigOptions = Cypress.PluginConfigOptions;
 export default defineConfig({
   reporter: 'mochawesome',
   reporterOptions: {
-    reportDir: 'cypress/reports',
-    reportFilename: '[name].html',
+    reportDir: 'cypress/reports/reports-assets',
+    reportFilename: '[name].json',
     charts: true,
     overwrite: true,
-    html: true,
-    json: false
+    html: false,
+    json: true
   },
   video: true,
   e2e: {
