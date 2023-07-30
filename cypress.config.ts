@@ -3,10 +3,16 @@ import PluginEvents = Cypress.PluginEvents;
 import PluginConfigOptions = Cypress.PluginConfigOptions;
 
 export default defineConfig({
-  reporter: 'junit',
+  reporter: 'mochawesome',
   reporterOptions: {
-    mochaFile: 'cypress/reports/my-test-output-[hash].xml'
+    reportDir: 'cypress/reports',
+    reportFilename: '[name].html',
+    charts: true,
+    overwrite: true,
+    html: true,
+    json: false
   },
+  video: true,
   e2e: {
     setupNodeEvents(on: PluginEvents, config: PluginConfigOptions): void {
       // implement node event listeners here
